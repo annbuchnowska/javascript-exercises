@@ -1,0 +1,111 @@
+//******************************************
+//************* string *********************
+
+// wyswietlic kazdy wyraz z duzej litery
+var napis = 'studia podyplomowe politechnika bia³ostocka wydzia³ informatyki';
+// 'Studia Podyplomowe Politechnika Bialostocka Wydzia Informatyki'
+
+var wyrazy = napis.split(' ');
+var ilosc = wyrazy.length;
+for( i=0; i < ilosc; i++ ){
+   var wyraz =  wyrazy[i];
+   wyraz = wyraz.charAt(0).toUpperCase() + wyraz.slice(1);
+   wyrazy[i] = wyraz;
+}
+napis = wyrazy.join(' ');
+console.log(napis);
+
+
+var napis = 'studia podyplomowe politechnika bialostocka wydzial informatyki';
+napis  = napis.charAt(0).toUpperCase() + napis.slice(1);
+var napis2 = '';
+for( i = 0; i < napis.length; i++ ){
+  var litera = napis.charAt(i);
+    if( i > 0 && napis.charAt(i-1) == ' ' ) litera.toUpperCase();
+    napis2 += litera;
+}
+console.log( napis2 );
+
+// wypisac zdanie od tylu
+var napis = 'studia podyplomowe politechnika bia³ostocka wydzial informatyki';
+// 'ikytamrofni laizdyw.....'
+var napis2 = '';
+for( i = napis.length-1 ; i >= 0; i-- ){
+  var litera = napis.charAt(i);
+    napis2 += litera;
+}
+console.log( napis2 );
+
+// policzyc ilocsc wystapien podanej w zmiennej `litera`
+var napis = 'studia podyplomowe politechnika bialostocka wydzial informatyki';
+//var litera = 's';
+var litera = 'i';
+
+console.log( napis.split(litera).length -1 );
+
+var ileLiter = napis.length;
+var licznik = 0;
+for( i = 0; i < ileLiter; i++ ){
+  if( napis.charAt(i) == litera ) licznik++; 
+}
+console.log( licznik );
+
+var licznik = 0;
+var start = 0;
+while( ( start = napis.indexOf( litera, start ) ) > -1  ){
+  start  += 1;
+  licznik++;
+ 
+}
+console.log( licznik );
+
+//wypisac alfabet abc....xyz lub/i ABC.....XYZ
+//tablica ANSII
+//fromCharCode()
+//charCodeAt()
+
+var literaA = 'A';
+console.log( literaA.charCodeAt(0) );
+console.log( String("A").charCodeAt(0) );
+console.log( "A".charCodeAt(0) );
+for( i = literaA.charCodeAt(0); i <= "Z".charCodeAt(0); i++ ){
+  console.log( String.fromCharCode(i) );
+}
+
+//porownac 2 zmienne bez uwzgledniania wielkosci liter czy sa takie same 
+var str1 = 'JavaScript';
+var str2 = 'javascript';
+console.log( str1.toUpperCase() === str2.toUpperCase() )
+
+//odwrocic litery w zmiennej mala na duza duza na mala
+var napis = 'LoReM IPSuM';
+// 'lOrEm ipsUm'
+var napis2 = '';
+for( i = 0; i < napis.length; i++ ){
+  var litera = napis.charAt(i);
+    //if(  litera == litera.toUpperCase() ){ // to jest duza
+    if(  litera.charCodeAt(0) >= 65 && litera.charCodeAt(0) <= 90 ){ // to jest duza
+        litera = litera.toLowerCase()
+    }else{
+        litera = litera.toUpperCase()
+    }
+    napis2 += litera;
+}
+console.log( napis2 );
+
+//wyciac ze zmiennej zadana ilosc wyrazow
+var napis = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was';
+var ilosc = 15;
+
+console.log( napis.split(' ').slice(0, ilosc).join(' ') )
+var pozycja = 0;
+while( ilosc ){ // ilose == 0
+  if( napis.indexOf(' ', pozycja) > -1 ){
+    pozycja = napis.indexOf(' ', pozycja) + 1;
+    ilosc--;
+  }
+}
+console.log( napis.substring( 0, pozycja ).trim() );
+String.trim(); // "\t" "\r" "\n" "\s"  // "\n" != '\n'
+
+

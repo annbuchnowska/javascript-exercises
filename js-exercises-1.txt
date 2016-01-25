@@ -1,10 +1,10 @@
+//***** conditions, if statements, switch statement etc *************
+//***************************************************************
+
 //petla od 1 do 10
-/*var i;
-for (i=1; i<=10; i++);{
+
+for (i=1; i<=10; i++){
   console.log(i);}
-
-
-
 
 // petla od 20 do 10
 
@@ -16,27 +16,26 @@ for (var k = 20 ; k >= 10 ; k--)
 for (var l = 0; l <=10 ; l++)
   {if (l%2 === 0 ) console.log (l);}
 
-*/
-//dla podanych zmiennych a ib prosze wykonac
+//dla podanych zmiennych a i b wykonac
 //podstawowe dzialanie matemtyczne (+,-,/,*)
-/*
-var a = 20.5, b="30";
+
+var a = 20.5, b="30.5";
 b = parseInt ( b );
-console.log (a+b); */
+console.log (a+b); // ->50.5
+
 //lub
 
-//var a = 20.5, b = "30.5";
-//console.log (a + +b);
+var a = 20.5, b = "30.5";
+console.log (a + +b); // ->51
 
-
-//do podanych zmiennych wywietliæ wynik
+//do podanych zmiennych wywietlic wynik
 //zmienna dzialanie moze przyjac wartosc '+', '-', '*', '/'
 
 /*var a = 20, b = 10, dzialanie = '-';
 var wynik =eval( a + dzialanie + b);
 console.log ('wynik' +wynik);*/
 
-/*var a = 20, b = 10, dzialanie = '%';
+var a = 20, b = 10, dzialanie = '%';
 var wynik = null;
 
 switch (dzialanie) {
@@ -57,24 +56,22 @@ switch (dzialanie) {
    break;
 }
     
-console.log( 'wynik ' + wynik); */
+console.log( 'wynik ' + wynik); 
 
 //dla podanej zmiennej sprawdzic typ
 
-/*var x=21;
+var x=21;
 console.log (typeof(x));
 
 //nastepnie stworzyc zmienna y ze zmiennej x zmieniajac jej typ na string
 
 var y = x.toString();
-console.log('y ' +y); console.log (typeof(y)); */
+console.log('y ' +y); console.log (typeof(y)); 
     //inna metoda:
-/*var x = 21;
+var x = 21;
   y = x.toString();
   y = x + '';
   console.log(typeof(y));
-*/
-
 
 //oblicz ile znakow ma  dany ciag
 
@@ -82,7 +79,6 @@ var napis='Jezyk JavaScript jest bardzo ciekawy :)';
 
 console.log (napis);
 console.log (napis.length);
-
 
 //wyswietlic litere "v"
 console.log(napis.charAt(0));
@@ -97,10 +93,8 @@ console.log(napis.substring(6)); //wycina string do 6 znaku
 //wyswietlic napis javascript
 console.log(napis.substr(6,10)); //wycina string do 6 i od 10 znaku
 
-
 //wyswietlic wszystko od napiosu :)
 console.log(napis.substr(napis.length - 2));
-
 
 //wyswietlic od napisu JavaScript bez uzywania indeksow
 
@@ -113,15 +107,11 @@ var pozycja = napis.indexOf('JavaScript');
 console.log(napis.substr(pozycja));
 console.log(napis.substr(napis.indexOf('JavaScript')));
 
-
-
 //wyswietlic po napisie JavaScript bez uzywania indeksow
 var pozycja = napis.indexOf('JavaScript') + String('JavaScript').length;
 console.log(napis.substr(pozycja));
 
 /*var pozycja = napis.indexOf('', napis.indexOf('') +1); console.log(napis.substr(pozycja));*/
-
-
 
 //wyswietlic wszystko od 1 do ost spacji
 var napis='Jezyk JavaScript jest bardzo ciekawy :)';
@@ -130,10 +120,8 @@ var koniec = napis.lastIndexOf(' ');
 
 console.log(napis.substring(start,koniec));
 
-
-
 //jest bardzo
-//moje zle    var napis='Jezyk JavaScript jest bardzo ciekawy :)';
+//var napis='Jezyk JavaScript jest bardzo ciekawy :)';
 //var start = napis.indexOf('jest');
 //var koniec = napis.lastIndexOf(' ciekawy');
 //console.log(napis.substring(start,koniec))
