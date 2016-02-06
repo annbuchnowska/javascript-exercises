@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>js exam</title>
+</head>
+<body>
+  <!-- **************** Ex 3 **************** -->
+  <!-- Ex 3 A circle as an object and three methods - diameter, circumference, area
+
+  PL
+  Obiekt reprezentujący matematyczne koło. W konstruktorze ma przyjmować promień lub
+  poprzez metodę ( np. setRadius, setPromien ). Obiekt ma posiadać co najmniej jedną
+  wartość zawierającą promień oraz 3 metody podające wartości średnicy, pola i obwodu. -->
+  <!-- **************** Solution **************** -->
+
+  <!-- <script>
+    function circle(r) {
+      this.radius = r;
+      this.diameter = function () {return (this.radius * 2 );}; /*srednica*/
+      this.circumference = function () {return ( 2 * Math.PI * this.radius );}; /*obwod*/
+      this.area = function () { return (Math.PI * this.radius * this.radius);}; /*pole*/
+    }
+    var testcircle = new circle(3);
+    window.alert( 'the diameter of the circle is ' + testcircle.diameter() );
+    window.alert( 'the circumference of the circle is ' + testcircle.circuit() );
+    window.alert( 'the area of the circle is ' + testcircle.area() );
+  </script> -->
+
+  <!--******************* and ex 3 *********************
+  ***********************************************
+  ***********************************************-->
+
+
+  <!-- **************** Ex 4 **************** -->
+  <!-- create form validate
+
+  Zadanie 4 Stworzyć walidację formularza ( w JavaScript ) rejestracyjnego zawierające następujące
+  dane: imię ( input text ), nazwisko ( input text ), płeć ( radiobuton ), adres (input text),
+  telefon (input text), województwo ( select, nie musi być 16 może być kilka ) o mnie ( textarea
+  ). Na start wszystkie pola formularza mają być niewypełnione / puste / niewybrane
+  Walidacja ma działać na kliknięcie przycisku „submit” oraz ma wymusić wypełnienie
+  wszystkich pól:
+
+
+  imie i nazwisko - min. 2 znaki tylko litery,
+  płeć - musi zostać wybrana,adres - min 10 znaków,
+  telefon - tylko same cyfry,
+  województwo - musi zostać wybrane,
+  o mnie – min. 5 słów
+  W razie wykrycia błędu dane pole ma zostać zaznaczone ( można wyświetlić komunikat
+  informacyjny ) oraz należy zablokować wysłanie formularza ( submit )-->
+  <form onsubmit="return validate(this)">
+    <p>
+      <label for="firstname">First Name:</label>
+      <input type="text" id="firstname"/>
+    </p>
+    <p>
+      <label for="lastname">Last Name:</label>
+      <input type="text" id="lastname" name="lastname" />
+    </p>
+    <input type="radio" name="gender" id="genderF" value="female"/>
+    <label for="genderF">female</label>
+    <input type="radio" name="gender" id="genderM" value="male"/>
+    <label for="genderM">male</label>
+    <p>
+      <label for="Phone">Phone:</label>
+      <input type="text" id="Phone" name="Phone" />
+    </p>
+    <p>
+      <label for="Address">Address:</label>
+      <textarea cols="20" rows="5" id="Address" name="Address" ></textarea>
+    </p>
+    <p>
+      <label for="County">County:</label>
+      <select id="county"  name="County" >
+        <option value="000" selected="selected">[choose yours]</option>
+        <option value="war-maz">war-maz</option>
+        <option value="pod">podlaskie</option>
+        <option value="maz">mazowieckie</option>
+      </select>
+    </p>
+    <p>
+      <label for="aboutme">About me:</label>
+      <textarea cols="30" rows="3" id="aboutme" name="aboutme" ></textarea>
+    <p>
+      <input type="submit" onClick="return validate(document.forms[0])" value="Submit">
+    </p>
+  </form>
+  <script type="text/javascript">
+  function validate(form) {
+      if(form.firstname.value.length <= 2 || form.lastname.value.length <= 2){
+  	window.alert('Imię i nazwisko - wypełnij poprawnie!');
+  	return false;
+  	}
+      var re = /^[\wd ]+$/;
+  	if (!re.test(form.firstname.value) || !re.test(form.lastname.value)){
+        window.alert("nieprawidłowe znaki");
+       return false;
+      }
+      if(form.county.selectedIndex < 1) {
+      window.alert("wybierz województwo");
+       return false;
+      }
+      window.alert("poprawnie wysłano formularz");
+      return true;
+
+  }
+
+  </script>
+
+</body>
+</html>
