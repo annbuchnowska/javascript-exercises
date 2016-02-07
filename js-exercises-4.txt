@@ -1,0 +1,208 @@
+//var tab1 = new Array();
+var tab2 = [];
+
+tab2[0] = 'Jan';
+tab2[1] = 'Tomasz';
+tab2[2] = 'Ewa';
+tab2[3] = 'Ola';
+
+var tab2 = ['Jan', 'Tomasz', 'Ewa', 'Ola'];
+
+
+//*******************************
+// 1a. Dodac na koniec tablicy 'Zbyszek'
+//*******************************
+
+var tab = ['Jan', 'Tomasz', 'Ewa', 'Ola'];
+tab.push('Zbyszek', 'Zibi');
+tab[tab.length] = 'Adam';
+console.log(tab);
+
+
+//*******************************
+// 1b. Dodac na poczatek tablicy 'Grzes'
+//*******************************
+
+tab.unshift('Grzes');
+console.log(tab);
+tab.reverse();
+tab.push('Rafal');
+tab.reverse();
+//tab[0] = 'Agata';
+console.log(tab);
+tab.splice(0, 0, 'Alicja');
+console.log(tab);
+var t2 = ['Pawel'];
+tab = ['Pawel'].concat(tab);
+console.log( tab );
+tab = ('Aga,'+tab.join()).split(',') ;
+console.log( tab );
+
+
+//*******************************
+// 1c. Usunac pierwszy element
+//*******************************
+
+var tab = ["Aga", "Pawel", "Alicja", "Rafal", "Grzes", "Jan", "Tomasz", "Ewa", "Ola", "Zbyszek", "Zibi", "Adam"];
+imie = tab.shift();
+console.log( imie , tab );
+
+
+//*******************************
+// 1d. Usunac ostatni element
+//*******************************
+
+imie = tab.pop();
+console.log( imie , tab );
+console.log( tab );
+tab.splice( tab.length - 1  , 1 );
+console.log( tab );
+tab.length =  tab.length - 1; // tab.length--
+console.log( tab );
+
+
+//*******************************
+// 2a. posortowac elemetny tablicy od A-Z i od Z-A
+//*******************************
+
+var tab = [ "Pawel", "Alicja", "Rafa�", "Grzes", "Jan", "Tomasz", "Ewa", "Ola", "Zbyszek", "Zibi", "Aga", "Adam"];
+tab.sort();
+console.log( tab );
+tab.reverse();
+console.log( sortReverse(tab) );
+function sortReverse( arr ){
+  return  arr.sort().reverse();
+}
+
+
+//*******************************
+// 2b. posortowac elemetny tablicy 1..9 i 9..1
+// [2, 3, 5, 7, 8, 10, 15]
+//*******************************
+
+var tab = [ 5, 2, 7, 8, 10, 15, 3 ];
+tab.sort(
+  //function(a, b){return a-b;}
+  function(a, b){
+    if( a > b ) return 1;
+    if( a < b ) return -1;
+    return 0;
+  }
+);
+console.log( tab );
+
+
+//*******************************
+// 3. Zsumowac wszystkie elementy tablicy ( lub tylko parzyste/nieparzyste )
+//*******************************
+
+var tab = [ 5, 2, 7, 8, 10, 15, 3 ];
+var suma = 0;
+for( var i in tab ){
+  //if( i%2 === 0 )
+  suma = suma + tab[i];
+}
+console.log( suma );
+
+//console.log( eval(tab.join('+'))  );
+
+
+//*******************************
+// 4. znalezc najmniejsza / najwieksza liczbe w tablicy
+//*******************************
+
+var tab = [ 5, 2, 7, 8, 10, 15, 3 ];
+tab.sort(function(a, b){return a-b;});
+var min = tab[0];
+var max = tab[ tab.length-1 ];
+console.log( min, max );
+var tab = [ 5, 2, 7, 8, 10, 15, 3 ];
+var min = tab[0];  // Infinity
+var max = tab[0];  // -Infinity
+for( var i in tab ){
+  if( tab[i] < min ) min = tab[i];
+  if( tab[i] > max ) max = tab[i];
+}
+console.log( min, max );
+
+
+//*******************************
+// 5. Ustalic jaka wartosc wystepuje najwiecej razy w talbicy
+//*******************************
+
+var tab = [ 'Red', 'Blue', null, 'Black', 'Silver', null, 'White', 'Green', 'Brown', null ];
+var element;
+var maxElement;
+var maxIlosc = 0;
+var ilosc = 0;
+for( var i in tab ){
+    element = tab[i];
+    ilosc = 0;
+   for( var k in tab ){
+      if( tab[k] === element ) ilosc++;
+   }
+    if( ilosc > maxIlosc ){
+      maxIlosc = ilosc;
+      maxElement = element;
+    }
+}
+console.log( maxElement + ": " + maxIlosc );
+var tab = [ 1, 2, 2, 4, 5, 2 ];
+var tab2 = [];
+  for( var i in tab ){
+    if( typeof( tab2[ tab[i] ] ) == 'undefined' ) tab2[ tab[i] ] = 0;
+    tab2[ tab[i] ] ++;
+  }
+console.log( tab2 );
+
+
+//*******************************
+// 6. losujemy 6 liczb do lotka liczny od 1 do 49
+//*******************************
+
+Math.random(); // losuje liczbe od <0, 1)
+Math.floor(); // zaokragla w dol
+Math.ceil(); // zaokragla w gore
+Math.round( ); // zaokragla "matematycznie"
+var winner = [];
+while( winner.length < 6 ){
+  ball = Math.floor( Math.random() * 49 ) + 1; // 1-49
+  if(  winner.indexOf( ball ) == -1  ){
+    winner.push( ball );
+  }
+}
+console.log (winner );
+/*
+var lotto = [];
+for( i = 1; i <= 49 ; i++ ){
+  lotto[i] = i;
+}
+lotto.shift();
+console.log(lotto);
+*/
+
+
+//*******************************
+// 9. policzyc ilosc cyfr w liczbie
+// np. 112 >> 3
+// np. 1.000.000 >> 7
+// np. -15 >> 2
+//*******************************
+
+var liczba = '1.000.000';
+var liczba = 112;
+liczba = liczba + "";
+liczba = liczba.split("");
+var licznik = 0;
+var tab = [0,1,2,3,4,5,6,7,8,9];
+for ( var i in liczba ){
+  var el =   liczba[i] ;
+  if( tab.indexOf(el) > -1 ) licznik++;
+}
+console.log( licznik  );
+var liczba = -112;
+liczba = Math.abs(liczba);
+console.log( ( liczba + "" ).length  );
+var str = 'drtn 1.000.000 sdfgsd 3245';
+console.log( str.replace(/\./g, '' )  );
+console.log( str.replace(/[^0-9]/g, '' )  );
