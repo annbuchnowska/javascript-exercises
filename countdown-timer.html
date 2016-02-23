@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="author" content="Anna Buchnowska">
+  <title>countdown timer</title>
+</head>
+<body onload = "getSeconds()">
+  <div id="countdown"></div>
+  <!--  javascript -->
+  <script type = "text/javascript">
+  function getSeconds() {
+    var now = new Date();
+    var time = now.getTime(); //now (ms)
+    var midnight = new Date(now.getFullYear(),now.getMonth(),now.getDate(),0,0,0); //or any diffrent, e.g. 11:11 ->11,11,0
+    var count = midnight.getTime() + 86400000;
+    var diff = count - time;
+    diff = parseInt(diff/1000);
+    if (diff > 86400) {
+      diff = diff - 86400;}
+      startTimer (diff);
+    }
+    var timeInsec;
+    var ticker;
+    function startTimer(sec){
+      timeInsec = parseInt(sec);
+      ticker = setInterval("tick()",1000);
+      tick();
+    }
+    function tick() {
+      var sec = timeInsec;
+        if (sec>0) {
+          timeInsec--;
+        }
+        else {
+          clearInterval(ticker); // 0 stop and start again
+          getSeconds();
+        }
+        var hour= Math.floor(sec/3600);
+        sec %= 3600;
+        var min = Math.floor(sec/60);
+        sec %= 60;
+        var result = ((hour < 10 ) ? "0" : "" ) + hour + " godz " + ( (min < 10) ? "0" : "" ) + min + " min " + ( (sec < 10) ? "0" : "" ) + sec + " s";
+          document.getElementById("countdown").innerHTML = "Do końca pozostało " + result;
+    }
+  </script>
+</body>
+</html>
