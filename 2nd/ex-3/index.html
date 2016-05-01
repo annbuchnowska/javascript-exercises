@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<meta charset="utf-8"/>
+	<title>jQuery - ex 3, jQuery Validatin plugin</title>
+</head>
+<body>
+	<fieldset>
+		<legend>Logowanie</legend>
+			<form action="" method="post" name="regForm" id="regForm">
+				<p>
+					<label for="login">Login(email)</label>
+					<input name="login" id="login" type="text" required />
+				</p>
+				<p>
+					<label for="password">User password:</label>
+			  		<input name="password" type="password" required >
+			  	</p>
+				<input class="submit" type="submit" value="Submit">
+			</form>
+	</fieldset>
+
+<!-- script -->
+<script src="jquery-1.12.1.min.js"></script>	
+<script src="jquery.validate.min.js"></script>
+<script>
+$(document).ready(function(){
+	$('#regForm').validate();  		
+});
+// tylko nadac odpowiednie klasy! required email
+</script>	
+</body>
+</html>
+<!-- 
+request to
+messages - opcja wlasne komunikaty
+equal to (do haseł)
+rozbudowac walidatot o wlasne rule
+komunikaty o bledach w formie listy -->
