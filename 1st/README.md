@@ -1,1 +1,0 @@
-# javascript set of exercises
