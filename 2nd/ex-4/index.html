@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<meta charset="utf-8"/>
+	<title>jQuery - ex 3, jQuery Validatin plugin</title>
+	<style>
+		fieldset {
+        	width: 50%;
+		}
+		legend { 
+			font-weight: bold;
+		}
+		label {
+			width: 50%; 
+			display: inline-block;
+		}
+		label.error {
+			color: red;
+			margin-left:10px;
+		}
+		input.error{
+			color: red;
+    		border: 1px solid red;
+		}
+	</style>
+</head>
+<body>
+	<fieldset>
+		<legend>Rejestracja</legend>
+			<form action="" method="post" name="regForm" id="regForm">
+				<p>
+					<label for="name">Imię (min 3 znaki):</label>
+					<input name="name" id="name" type="text"/>
+				</p>
+				<p>
+					<label for="surname">Podaj nazwisko (min 3 znaki):</label>
+					<input name="surname" id="surname" type="text"/>
+				</p>
+				<p>
+		  			<label for="date">Data urodzenia:</label>
+		  			<input name="date" id="date" type="text"/>
+				</p>
+				<p>
+					<label for="password">hasło:</label>
+			  		<input name="password" id="password" type="text"/>
+			  	</p>
+			  	<p>
+		  			<label for="password2">Powtórz hasło</label>
+		  			<input name="password2" id="password2" type="text" />
+				</p>
+				<p>
+					<label for="email">Adres email:</label>
+					<input name="email" id="email" type="email"/>
+				</p>
+				<p>
+					<label for="url">stwona www:</label>
+					<input name="url" id="url" type="url"/>
+					</p>
+				<p>
+				  	<label for="address">Adres:</label>
+				  	<input type="text" id="address" name="address" />
+				</p>
+				<p>
+				  	<label for="city">Miasto (wymagane)</label>
+				  	<input type="text" id="city" name="city" >
+				</p>
+				<p>
+				  	<label for="zip">Kod pocztowy:</label>
+				  	<input type="text" id="zip" name="zip"/>
+				</p>
+				<p>
+				 	<input name="send" id="send" type="checkbox" />
+		          	<label for="send">Wysyłka na inny adres</label>
+				</p>        
+				<p>
+				 	<label for="send_address">Adres:</label>
+				  <input type="text" id="send_address" name="send_address" readonly />
+				</p>
+				<p>
+		  			<label for="send_zip">Kod pocztowy:</label>
+		  			<input type="text" id="send_zip" name="send_zip" readonly />
+				</p>		
+				<p>
+		  			<label for="send_city">Miasto:</label>
+		  			<input type="text" id="send_city" name="send_city" readonly />
+				</p>
+				<p>
+		  			<input name="reg" id="reg" type="checkbox" >
+          			<label for="reg">Regulamin</label>
+				</p>
+				<input class="submit" type="submit" value="Submit"/>
+				<p id="messageErrors"></p>
+			</form>
+	</fieldset>
+
+<!-- script -->
+<script src="jquery-1.12.1.min.js"></script>	
+<script src="jquery.validate.min.js"></script>
+<!-- obsluga jezyka PL -->
+<script src="messages_pl.min.js"></script>
+<script src="main.validate.js"></script>
+
+</body>
+</html>
+
