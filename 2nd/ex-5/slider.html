@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta charset="utf-8">
+        <title>JS Slider v1</title>
+
+        <style>
+
+            .wrapper{
+                margin: 0px auto;
+                width: 1000px;
+                padding-top: 100px;
+            }
+
+            .clear{ clear:both !important; float:none !important; font-size:0px; line-height:0em; margin:0 !important; padding:0 !important; }
+            
+            .slider{
+
+
+            }
+
+            .slider ul{
+                list-style: none;
+                margin:0px;
+                padding:0px;
+                width: 4000px;                
+
+            }
+
+            .slider li{
+                width: 380px;
+                height: 255px;
+                padding-right:20px;
+                float: left;
+
+            }
+            
+            .slider .moved_bar{
+            	overflow: hidden;
+            	float: left;
+            	width: 780px;
+            }
+            
+            .slider button{
+                height: 256px;
+                width: 20px;
+                text-align: center;
+                vertical-align: middle;
+                margin: 0px 10px;
+                float: left;
+            }
+
+        </style>
+
+        <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+
+
+        <script type="text/javascript">
+
+            $(document).ready(function () {
+
+                $("button.left").click(function(){
+                    if ($(".list").css("margin-left") >= "0px") {
+                        $(".list").css("margin-left", "0px");
+                    } else {
+                    $(".list").animate({marginLeft: "+=400px"}, 1000);
+                    }
+                });
+
+                $("button.right").click(function(){
+                    if ($(".list").css("margin-left") <= "-3200px") {
+                        $(".list").css("margin-left", "-3200px");
+                    } else {
+                    $(".list").animate({marginLeft: "-=400px"}, 1000);
+                    }
+                });
+            });
+
+
+        </script>
+
+    </head>
+    <body>
+        <div class="wrapper">
+            
+            <div class="slider">
+                <button class="left"> &lt; </button>
+                <div class="moved_bar">
+                    <ul class="list">
+                        <li><img src="images/01.jpg" ></li>
+                        <li><img src="images/02.jpg" ></li>
+                        <li><img src="images/03.jpg" ></li>
+                        <li><img src="images/04.jpg" ></li>
+                        <li><img src="images/05.jpg" ></li>
+                        <li><img src="images/06.jpg" ></li>
+                        <li><img src="images/07.jpg" ></li>
+                        <li><img src="images/08.jpg" ></li>
+                        <li><img src="images/09.jpg" ></li>
+                        <li><img src="images/10.jpg" ></li>
+                    </ul>
+                </div>
+                <button class="right"> &gt; </button>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </body>
+</html>
